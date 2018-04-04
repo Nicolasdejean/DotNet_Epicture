@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="Epicture.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Epicture"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Pg="using:Epicture.Pages"
+    mc:Ignorable="d">
+   
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <GridView Name="ImageGrid"  Grid.Row="0" ItemsSource="{x:Bind _imagelist}" Visibility="Collapsed">
+            <GridView.FooterTemplate>
+                <DataTemplate>
+                    <Button Name="Refresh"  Height="100" Width="100" HorizontalAlignment="center" Background="Transparent" Click="Refresh_Click">
+                        <Viewbox>
+                            <SymbolIcon Symbol="Refresh"/>
+                        </Viewbox>
+                    </Button>
+                </DataTemplate>
+            </GridView.FooterTemplate>
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Height="200" Width="200">
+                        <Image Tag="{Binding _id}"  Stretch="UniformToFill" Source="{Binding _image}" Tapped="Image_Tapped"/>
+                    </Border>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
+        <Pg:ConnectUser x:Name="ConnectUser" Grid.RowSpan="2" Visibility="Visible"/>
+        <Pg:UploadImage x:Name="UploadImage" Grid.RowSpan="2" Visibility="Collapsed"/>
+        <Pg:ConsultImage x:Name="ConsultImage" Grid.RowSpan="2" Visibility="Collapsed"/>
+        <Pg:GalleryImage x:Name="GalleryImage" Grid.RowSpan="2" Visibility="Collapsed"/>
+        <Pg:FavoriteImage x:Name="FavouriteImage" Grid.RowSpan="2" Visibility="Collapsed"/>
+
+        <CommandBar Name="commandBar"  Grid.Row="1" Visibility="Collapsed">
+            <AppBarButton Name="Upload" Icon="Upload" Label="Upload Image" Click="Upload_Click"/>
+            <AppBarButton Name="Favorite" Icon="Favorite" Label="Favorite Image" Click="Favorite_Click"/>
+        </CommandBar>
+
+        <TextBox Grid.Row="1" Name="textReasearch" Margin="70,0,0,0" Height="10" HorizontalAlignment="Center" Width="450" Visibility="Collapsed"/>
+        <Button Grid.Row="1" Margin="0,0,430,0"  Name="research"  HorizontalAlignment="center" Height="50" Width="50" Background="Transparent" Click="research_Click" Visibility="Collapsed">
+            <Viewbox>
+                <SymbolIcon Name="symbolButton"  Symbol="Zoom"/>
+            </Viewbox>
+        </Button>
+        <TextBox Grid.Row="1" Name="textFilter" Margin="50,0,0,0" Height="10" HorizontalAlignment="Left" Width="450" Visibility="Collapsed"/>
+        <Button Grid.Row="1"  Name="filter"  HorizontalAlignment="Left" Height="50" Width="50" Background="Transparent" Click="filter_Click" Visibility="Collapsed">
+            <Viewbox>
+                <SymbolIcon Name="symbolFilter"  Symbol="Filter"/>
+            </Viewbox>
+        </Button>
+    </Grid>
+</Page>

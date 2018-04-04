@@ -1,0 +1,1 @@
+C:\Users\nicolas\Desktop\DotNet_epicture_2017\Epicture\Epicture.csproj;arm

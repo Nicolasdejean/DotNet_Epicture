@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="Epicture.Pages.ConsultImage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Epicture.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Image x:ConnectionId='1' Name="displayImage"  Grid.Row="0"/>
+        <Button x:ConnectionId='2' Margin="0,50,0,0"  Name="addFavorite" Grid.Row="1" Height="100" Width="100" HorizontalAlignment="center" Background="Transparent"                          >
+            <Viewbox>
+                <SymbolIcon x:ConnectionId='5' Name="symbolButton"  Symbol="Favorite"/>
+            </Viewbox>
+        </Button>
+        <CommandBar x:ConnectionId='3' Name="commandBar"  Grid.Row="2" Visibility="Visible">
+            <AppBarButton x:ConnectionId='4' Name="back" Icon="Back" Label="Back"                   />
+        </CommandBar>
+    </Grid>
+</UserControl>
+
